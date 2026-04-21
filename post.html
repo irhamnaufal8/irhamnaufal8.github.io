@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading… — Irham Naufal</title>
+  <meta name="description" content="A post by Irham Naufal." />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <!-- Marked.js for Markdown parsing (loaded from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+</head>
+<body>
+
+  <!-- ─── NAV ───────────────────────────────────────────── -->
+  <nav class="nav nav--scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-mark">IN</span>
+        <span class="nav__logo-name">Irham Naufal</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#posts">Writing</a></li>
+        <li><a href="mailto:irhamnfl8@gmail.com" class="nav__cta">Say Hi 👋</a></li>
+      </ul>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#posts">Writing</a>
+      <a href="mailto:irhamnfl8@gmail.com">Say Hi 👋</a>
+    </div>
+  </nav>
+
+  <!-- ─── POST HERO ────────────────────────────────────── -->
+  <header class="post-hero" id="postHero">
+    <div class="post-hero__inner">
+      <a href="index.html#posts" class="post-hero__back">← Back to all posts</a>
+      <div class="post-hero__tags" id="postTags"></div>
+      <h1 class="post-hero__title" id="postTitle">Loading…</h1>
+      <div class="post-hero__meta" id="postMeta"></div>
+      <!-- Banner injected here by JS if available -->
+    </div>
+  </header>
+
+  <!-- ─── POST BODY ────────────────────────────────────── -->
+  <main class="post-body">
+    <div class="post-body__inner">
+      <article class="prose" id="postContent">
+        <!-- Skeleton loading state -->
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div class="skeleton" style="height:1.2rem;width:90%"></div>
+          <div class="skeleton" style="height:1.2rem;width:75%"></div>
+          <div class="skeleton" style="height:1.2rem;width:85%"></div>
+          <div class="skeleton" style="height:1.2rem;width:60%"></div>
+          <div class="skeleton" style="height:1.2rem;width:80%"></div>
+        </div>
+      </article>
+
+      <!-- Author card -->
+      <aside class="post-author reveal">
+        <img src="assets/images/avatar.jpg" alt="Irham Naufal" class="post-author__avatar" onerror="this.style.display='none'" />
+        <div>
+          <strong>Muhammad Irham Naufal</strong>
+          <p>Software Engineer · Apple WWDC24 Winner · Based in Jakarta, Indonesia</p>
+          <div class="about__links" style="margin-top:.75rem">
+            <a href="https://github.com/irhamnaufal8" target="_blank" class="social-link">GitHub</a>
+            <a href="https://linkedin.com/in/irhamnaufal8" target="_blank" class="social-link">LinkedIn</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Navigation between posts -->
+      <nav class="post-nav reveal" id="postNav"></nav>
+    </div>
+  </main>
+
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="nav__logo-mark">IN</span>
+          <span>Muhammad Irham Naufal</span>
+        </div>
+        <div class="footer__links">
+          <a href="https://github.com/irhamnaufal8" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/irhamnaufal8" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:irhamnfl8@gmail.com">Email</a>
+        </div>
+        <p class="footer__copy">© 2025 Irham Naufal. Designed with intention.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .post-author {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+    .post-author__avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .post-author strong { font-size: 1rem; font-weight: 600; display: block; }
+    .post-author p { font-size: .85rem; color: var(--color-text-3); margin-top: .2rem; }
+
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      flex-wrap: wrap;
+    }
+    .post-nav__link {
+      flex: 1;
+      min-width: 200px;
+      padding: 1rem 1.25rem;
+      background: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      transition: border-color .2s, box-shadow .2s;
+      display: block;
+    }
+    .post-nav__link:hover { border-color: var(--color-accent); box-shadow: var(--shadow-sm); }
+    .post-nav__dir { font-size: .72rem; color: var(--color-text-3); text-transform: uppercase; letter-spacing: .08em; display: block; margin-bottom: .25rem; }
+    .post-nav__title { font-size: .92rem; font-weight: 500; color: var(--color-text); }
+    .post-nav__link--next { text-align: right; }
+  </style>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (async function loadPost() {
+      const params = new URLSearchParams(location.search);
+      const slug   = params.get('slug');
+
+      if (!slug) {
+        showError('Post not found. <a href="index.html">Go home →</a>');
+        return;
+      }
+
+      // Load post index
+      let index = [];
+      try {
+        const r = await fetch('posts/index.json');
+        index = await r.json();
+      } catch (_) {}
+
+      const meta = index.find(p => p.slug === slug) || {};
+
+      // Fetch the markdown file
+      let markdown = '';
+      try {
+        const r = await fetch(`posts/${slug}.md`);
+        if (!r.ok) throw new Error('Not found');
+        markdown = await r.text();
+      } catch (_) {
+        showError(`Could not load post "<strong>${slug}</strong>". Make sure the file <code>posts/${slug}.md</code> exists.`);
+        return;
+      }
+
+      // Populate hero
+      document.title = `${meta.title || slug} — Irham Naufal`;
+      document.getElementById('postTitle').textContent = meta.title || slug;
+
+      // Tags
+      const tagsEl = document.getElementById('postTags');
+      (meta.tags || []).forEach(tag => {
+        const span = document.createElement('span');
+        span.className = `work-card__tag work-card__tag--${tag}`;
+        span.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+        tagsEl.appendChild(span);
+      });
+
+      // Meta (date + read time)
+      const readTime = Math.max(1, Math.ceil(markdown.split(/\s+/).length / 200));
+      const metaEl   = document.getElementById('postMeta');
+      if (meta.date) {
+        const d = new Date(meta.date);
+        const dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        metaEl.innerHTML = `<span>${dateStr}</span><span class="post-hero__meta-sep">·</span><span>${readTime} min read</span>`;
+      }
+
+      // Banner
+      if (meta.banner) {
+        const heroInner = document.querySelector('.post-hero__inner');
+        const img = document.createElement('img');
+        img.src       = meta.banner;
+        img.alt       = meta.title || '';
+        img.className = 'post-hero__banner';
+        img.loading   = 'lazy';
+        heroInner.appendChild(img);
+      }
+
+      // Render markdown
+      marked.setOptions({ breaks: true, gfm: true });
+      document.getElementById('postContent').innerHTML = marked.parse(markdown);
+
+      // Post navigation
+      const currentIdx = index.findIndex(p => p.slug === slug);
+      const prev = index[currentIdx - 1];
+      const next = index[currentIdx + 1];
+      const navEl = document.getElementById('postNav');
+      if (prev) {
+        navEl.innerHTML += `<a href="post.html?slug=${encodeURIComponent(prev.slug)}" class="post-nav__link post-nav__link--prev">
+          <span class="post-nav__dir">← Previous</span>
+          <span class="post-nav__title">${prev.title}</span>
+        </a>`;
+      }
+      if (next) {
+        navEl.innerHTML += `<a href="post.html?slug=${encodeURIComponent(next.slug)}" class="post-nav__link post-nav__link--next">
+          <span class="post-nav__dir">Next →</span>
+          <span class="post-nav__title">${next.title}</span>
+        </a>`;
+      }
+
+      // Trigger reveal
+      document.querySelectorAll('.reveal').forEach(el => {
+        requestAnimationFrame(() => el.classList.add('is-visible'));
+      });
+    })();
+
+    function showError(msg) {
+      document.getElementById('postTitle').innerHTML = 'Oops!';
+      document.getElementById('postContent').innerHTML = `<p style="color:var(--color-text-3)">${msg}</p>`;
+    }
+  </script>
+</body>
+</html>

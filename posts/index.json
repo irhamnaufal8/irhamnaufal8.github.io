@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "wwdc24-swift-student-challenge",
+    "title": "How I Won Apple's WWDC24 Swift Student Challenge",
+    "description": "From idea to Apple Park — the full story of building my winning Swift app, the rejections before it, and what I learned about building things that matter.",
+    "date": "2024-06-10",
+    "tags": ["story", "project"],
+    "banner": "posts/assets/wwdc24/banner.jpg",
+    "emoji": "🏆"
+  },
+  {
+    "slug": "building-sflix",
+    "title": "SafeFlix: AI-Powered Parental Control for Streaming",
+    "description": "My university final project — an iOS app that uses TensorFlow + Core ML to predict user age via facial recognition and filter inappropriate content.",
+    "date": "2024-05-20",
+    "tags": ["project"],
+    "banner": "posts/assets/sflix/banner.jpg",
+    "emoji": "🎬"
+  },
+  {
+    "slug": "lessons-from-first-job",
+    "title": "5 Things Nobody Told Me About My First Real Job",
+    "description": "I thought being a good coder was enough. It wasn't. Here's what I wish I knew before starting my career as a Software Engineer.",
+    "date": "2024-02-15",
+    "tags": ["lesson", "story"],
+    "banner": "",
+    "emoji": "💡"
+  }
+]
