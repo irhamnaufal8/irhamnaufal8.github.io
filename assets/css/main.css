@@ -66,6 +66,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -375,16 +376,19 @@ ul {
 .nav__mobile {
   display: none;
   flex-direction: column;
-  background: rgba(5, 5, 15, .96);
-  border-top: 1px solid var(--space-border);
-  padding: var(--s-sm) var(--s-lg);
+  background: transparent;
+  border-top: 1px solid transparent;
+  padding: 0 var(--s-lg);
   max-height: 0;
   overflow: hidden;
-  transition: max-height .4s var(--ease-out);
+  transition: max-height .4s var(--ease-out), border-color .4s, background .4s, padding .4s;
 }
 
 .nav__mobile.nav__mobile--open {
   max-height: 300px;
+  border-top-color: var(--space-border);
+  background: rgba(5, 5, 15, .96);
+  padding: var(--s-sm) var(--s-lg);
 }
 
 .nav__mobile a {
@@ -406,7 +410,7 @@ ul {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: calc(80px + var(--s-2xl)) var(--s-lg) var(--s-2xl);
   z-index: 1;
 }
@@ -421,6 +425,7 @@ ul {
     radial-gradient(ellipse 40% 40% at 15% 90%, rgba(236, 72, 153, .08) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
 .hero__content {
@@ -542,7 +547,10 @@ ul {
 }
 
 .hero__stats {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
   align-items: center;
   gap: var(--s-lg);
   padding: var(--s-md) var(--s-xl);
@@ -782,14 +790,15 @@ ul {
 
 .timeline {
   position: relative;
-  padding-left: 2.5rem;
+  --tl-line-x: 15px;
+  padding-left: calc(var(--tl-line-x) + 1.75rem);
   margin-top: var(--s-xl);
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 7px;
+  left: var(--tl-line-x);
   top: 8px;
   bottom: 0;
   width: 1px;
@@ -815,7 +824,8 @@ ul {
 
 .timeline__marker {
   position: absolute;
-  left: -2.5rem;
+  /* center the 16px circle on the line: shift left by (padding + half marker width) */
+  left: calc(-1 * (1.75rem + 8px));
   top: 4px;
   width: 16px;
   height: 16px;
@@ -1685,13 +1695,28 @@ ul {
   }
 
   .timeline {
-    padding-left: 1.75rem;
+    padding-left: calc(var(--tl-line-x) + 1.75rem);
   }
 }
 
 @media (max-width: 480px) {
   .container {
     padding: 0 var(--s-md);
+  }
+
+  .hero {
+    padding-left: var(--s-md);
+    padding-right: var(--s-md);
+  }
+
+  .hero__content {
+    width: 100%;
+  }
+
+  .hero__stats {
+    padding: var(--s-md) var(--s-md);
+    gap: var(--s-md);
+    width: 100%;
   }
 
   .hero__actions {
@@ -1706,6 +1731,6 @@ ul {
   }
 
   .hero__title {
-    font-size: 2.6rem;
+    font-size: clamp(2.2rem, 9vw, 2.8rem);
   }
 }
